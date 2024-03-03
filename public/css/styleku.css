@@ -1,0 +1,8 @@
+body {
+  background-image: linear-gradient(#0b8ccc, #2f318b);
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 13em;
+  padding-bottom: 10%;
+  background-position: fixed;
+}
