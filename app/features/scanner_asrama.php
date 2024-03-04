@@ -1,6 +1,10 @@
 <script>
     
-    var sesi = 1;
+document.getElementById("sesi").addEventListener("change",function(e){
+    var sesi = document.getElementById("sesi").value;
+    // var keluar = document.getElementById("hasil").innerHTML = sesi;
+    // console.log(sesi);
+    
     //buat rekam tgl
     var date = new Date();
     var current_date = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate();
@@ -30,14 +34,15 @@
     const config = {
         fps: 10,
         qrbox: {
-            width: 250,
-            height: 250
+            width: 20,
+            height: 20
         }
     };
     //eksekutor
     html5QrCode.start({
         facingMode: "environment"
     }, config, qrCodeSuccessCallback);
+})
 
 
 

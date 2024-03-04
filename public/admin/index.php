@@ -33,10 +33,11 @@ if ($_SESSION['status'] != "login") {
             </a>
         </div>
     </nav>
+
     <!-- tombol fitur -->
     <main class="card mx-auto" style="background-color: #171a73; width:80%">
         <div class="card-body d-flex flex-wrap justify-content-around">
-            <a href="" class="nav-link">
+            <a href="tambah.php" class="nav-link">
                 <center>
                     <img src="../img/plus.png" alt="tambah" height="36" class="mb-2">
                     <div class="text-light fw-semibold">
@@ -44,7 +45,7 @@ if ($_SESSION['status'] != "login") {
                     </div>
                 </center>
             </a>
-            <a href="" class="nav-link">
+            <a href="scan.php" class="nav-link">
                 <center>
                     <img src="../img/scan.png" alt="tambah" height="40" class="mb-1">
                     <div class="text-light fw-semibold">
@@ -52,7 +53,7 @@ if ($_SESSION['status'] != "login") {
                     </div>
                 </center>
             </a>
-            <a href="" class="nav-link">
+            <a href="absen.php" class="nav-link">
                 <center>
                     <img src="../img/document.png" alt="tambah" height="36" class="mb-2">
                     <div class="text-light fw-semibold">
@@ -62,6 +63,7 @@ if ($_SESSION['status'] != "login") {
             </a>
         </div>
     </main>
+    
     <!-- search -->
     <div class="d-flex mt-3 justify-content-center align-items-center">
         <form action="index.php" method="POST" class="rounded-pill ps-3 bg-light" style="height:2.5em">
@@ -81,7 +83,7 @@ if ($_SESSION['status'] != "login") {
                     $lahir = new DateTime($tampil['tgl']);
                     $today =  new DateTime();
                     $umur = $today->diff($lahir); ?>
-                    <div class="card mt-3">
+                    <div class="card mt-3 container-sm">
                         <div class='card-body'>
                             <div class="card-title"><b><?php echo $tampil['nama'] ." | ". $tampil['kelompok']?></b></div>
                             <p class="text">
@@ -103,7 +105,7 @@ if ($_SESSION['status'] != "login") {
         }
         ?>
     </div>
-
+        <!-- akhir dari fitur search -->
 
 </body>
 
