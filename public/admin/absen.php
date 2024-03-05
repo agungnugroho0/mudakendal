@@ -56,9 +56,9 @@ $grandputri = mysqli_query($conn, "SELECT *, COUNT(kelamin) as cnt FROM absen WH
         </div>
     </nav>
 
-    <div class="container-md mt-3">
+    <div class="container-md mt-1">
 
-        <form method="POST" action="">
+        <form method="POST" class="container-md">
             <input type="date" name="tgl" value="<?php if (isset($_POST['tgl'])) echo $_POST['tgl']; ?>" class="btn btn-light">
             <!-- <select name="sesi" hidden>
                 <option value="1" selected>1</option>
@@ -68,7 +68,7 @@ $grandputri = mysqli_query($conn, "SELECT *, COUNT(kelamin) as cnt FROM absen WH
             <button type="submit" name="filter" class="btn btn-warning">FILTER</button>
         </form>
         <div class="container-md">
-            <div class="card mb-2 ps-2 pt-2 pb-2">
+            <div class="card mb-1 ps-2 pt-2 pb-2">
                 <div class="card-title">
                     <h4>Laporan Absensi</h4>
                 </div>

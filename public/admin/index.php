@@ -9,18 +9,22 @@ if ($_SESSION['status'] != "login") {
 }
 
 // konfirmasi tindakan 
-if(isset($_GET['pesan'])){
+if (isset($_GET['pesan'])) {
     $pesan = $_GET['pesan'];
-    if($pesan == "input"){
+    if ($pesan == "input") {
         echo "<div class='alert alert-info alert-dismissible fade show' role='alert'>";
-    echo "Data berhasil di masukan";
-    echo "<button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>";
-    }else if($pesan == "update"){
-    echo "Data berhasil di update.";
-    }else if($pesan == "hapus"){
-    echo "Data berhasil di hapus.";
+        echo "Data berhasil di masukan";
+        echo "<button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>";
+    } else if ($pesan == "update") {
+        echo "<div class='alert alert-info alert-dismissible fade show' role='alert'>";
+        echo "Data berhasil di update";
+        echo "<button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>";
+    } else if ($pesan == "hapus") {
+        echo "<div class='alert alert-danger alert-dismissible fade show' role='alert'>";
+        echo "Data berhasil di update";
+        echo "<button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>";
     }
-   }
+}
 ?>
 <html>
 
@@ -77,7 +81,7 @@ if(isset($_GET['pesan'])){
             </a>
         </div>
     </main>
-    
+
     <!-- search -->
     <div class="d-flex mt-3 justify-content-center align-items-center">
         <form action="index.php" method="POST" class="rounded-pill ps-3 bg-light" style="height:2.5em">
@@ -89,28 +93,31 @@ if(isset($_GET['pesan'])){
         <?php
         if (isset($_POST['nama'])) {
             $nama = $_POST['nama'];
-            // ambil tindakan 
+            // ambil tindakan pencarian
             $ambildb = mysqli_query($conn, "select * from data where nama LIKE '%" . $nama . "%'");
             $cek = mysqli_num_rows($ambildb);
             if ($cek > 0) {
-                while ($tampil = mysqli_fetch_array($ambildb)) { 
+                while ($tampil = mysqli_fetch_array($ambildb)) {
+                    // hitung umur
                     $lahir = new DateTime($tampil['tgl']);
                     $today =  new DateTime();
                     $umur = $today->diff($lahir); ?>
+                    <!-- kartu nama pencarian -->
                     <div class="card mt-3 container-sm">
                         <div class='card-body'>
-                            <div class="card-title"><b><?php echo $tampil['nama'] ." | ". $tampil['kelompok']?></b></div>
+                            <div class="card-title"><b><?php echo $tampil['nama'] . " | " . $tampil['kelompok'] ?></b></div>
                             <p class="text">
-                                <?php echo $tampil['tgl']. " | ". $umur->y." Tahun";?>
+                                <?php echo $tampil['tgl'] . " | " . $umur->y . " Tahun"; ?>
                             </p>
-                            <a href="edit.php?id_mumi=<?php echo$tampil['id_mumi'];?>" class="card-link btn btn-primary"> Edit</a>
-                            <a href="#" class="card-link btn btn-danger"> Hapus</a>
+                            <a href="edit.php?id_mumi=<?php echo $tampil['id_mumi']; ?>" class="card-link btn btn-primary"> Edit</a>
+                            <a href="hapus.php?id_mumi=<?php echo $tampil['id_mumi']; ?>" class="card-link btn btn-danger" onclick="return confirm('Yakin Hapus?')"> Hapus</a>
                         </div>
                     </div>
-                    
-                <?php 
+
+        <?php
                 }
             } else {
+                // jika data tidak ditemukan 
                 echo "<div class='text-center text-light mt-5 container-fluid'>
                 <div><img src='../img/file_(1).png' height='170'></div>
                 <div class='mt-3'><h5>Data Belum Tersedia, Amal Sholeh bisa ditambahkan dulu</h5></div>
@@ -119,7 +126,7 @@ if(isset($_GET['pesan'])){
         }
         ?>
     </div>
-        <!-- akhir dari fitur search -->
+    <!-- akhir dari fitur search -->
 
 </body>
 
