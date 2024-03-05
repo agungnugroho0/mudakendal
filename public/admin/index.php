@@ -7,6 +7,20 @@ include_once("../../app/controllers/connect.php");
 if ($_SESSION['status'] != "login") {
     header("location:../../public/login/index.php");
 }
+
+// konfirmasi tindakan 
+if(isset($_GET['pesan'])){
+    $pesan = $_GET['pesan'];
+    if($pesan == "input"){
+        echo "<div class='alert alert-info alert-dismissible fade show' role='alert'>";
+    echo "Data berhasil di masukan";
+    echo "<button type='button' class='btn-close' data-bs-dismiss='alert' aria-label='Close'></button></div>";
+    }else if($pesan == "update"){
+    echo "Data berhasil di update.";
+    }else if($pesan == "hapus"){
+    echo "Data berhasil di hapus.";
+    }
+   }
 ?>
 <html>
 
@@ -89,8 +103,8 @@ if ($_SESSION['status'] != "login") {
                             <p class="text">
                                 <?php echo $tampil['tgl']. " | ". $umur->y." Tahun";?>
                             </p>
-                            <a href="#" class="card-link btn btn-primary"> Edit</a>
-                            <a href="#" class="card-link btn btn-primary"> Hapus</a>
+                            <a href="edit.php?id_mumi=<?php echo$tampil['id_mumi'];?>" class="card-link btn btn-primary"> Edit</a>
+                            <a href="#" class="card-link btn btn-danger"> Hapus</a>
                         </div>
                     </div>
                     

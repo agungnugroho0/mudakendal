@@ -1,5 +1,12 @@
 <?php
 include "../controllers/connect.php";
+session_start();
+include_once("../../app/controllers/connect.php");
+
+// cek login
+if ($_SESSION['status'] != "login") {
+    header("location:../../public/login/index.php");
+}
 // tangkap properti
 $id_mumi = $_POST['id_mumi'];
 $tgl = $_POST['tanggal'];
