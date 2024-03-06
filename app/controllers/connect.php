@@ -1,9 +1,9 @@
 
 <?php
 $servername = "localhost";
-$database = "mumi";
-$username = "root";
-$password = "";
+$database = "wagungnu_mudakendal";
+$username = "wagungnu_admin";
+$password = "bapakDjokam354";
  
 // untuk tulisan bercetak tebal silakan sesuaikan dengan detail database Anda
 // membuat koneksi
