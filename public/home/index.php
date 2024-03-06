@@ -22,4 +22,4 @@
             <div class=""><a href="../login/index.php"><img src="../img/login.png" alt="login" height="35"></a></div>
         </div>
     </nav>
-    <?php include("https://wagungnugroho.com/public/personal/index.php") ?>
+    <?php include("../personal/index.php") ?>

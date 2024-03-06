@@ -1,6 +1,6 @@
 
 <?php
-$servername = "103.147.154.185";
+$servername = "Localhost";
 $database = "wagungnu_mudakendal";
 $username = "wagungnu_admin";
 $password = "bapakDjokam354";
